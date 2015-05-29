@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS feedback_entries;
+
+CREATE TABLE  feedback_entries (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  name varchar(60) NOT NULL DEFAULT '',
+  rating tinyint(3) unsigned NOT NULL DEFAULT '0',
+  type enum('P','N','Z') NOT NULL DEFAULT 'Z' COMMENT 'P- Positive,N - Negative,z- Neutral',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+
+LOAD DATA INFILE 'D:\datadictionary.txt' INTO TABLE feedback.feedback_entries lines terminated by '\r\n';
